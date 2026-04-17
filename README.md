@@ -65,7 +65,6 @@ Erstat template-projekterne med dine egne:
 ### 4. Sociale Medier
 ```html
 <a href="https://www.linkedin.com/in/yourprofile/">LinkedIn</a>
-<a href="https://twitter.com/yourprofile">Twitter</a>
 <a href="https://www.instagram.com/yourprofile">Instagram</a>
 ```
 
