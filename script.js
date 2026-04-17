@@ -48,6 +48,17 @@ const observerOptions = {
     rootMargin: '0px 0px -100px 0px'
 };
 
+const envelopePreview = document.querySelector('.letter-image');
+if (envelopePreview) {
+    const openEnvelope = () => {
+        envelopePreview.classList.add('is-open');
+    };
+
+    envelopePreview.addEventListener('mouseenter', openEnvelope, { once: true });
+    envelopePreview.addEventListener('click', openEnvelope);
+    envelopePreview.addEventListener('focusin', openEnvelope);
+}
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
