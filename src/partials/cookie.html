@@ -1,0 +1,69 @@
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <h3 data-i18n="cookie.bannerTitle">🍪 Cookies og privatlivs</h3>
+            <p data-i18n="cookie.bannerText">Vi bruger cookies til at forbedre din oplevelse på vores hjemmeside. Nogle er essentielle for at hjemmesiden fungerer, mens andre hjælper os med at forstå, hvordan du bruger siden.</p>
+            <div class="cookie-details">
+                <p><strong data-i18n="cookie.essentialTitle">Essentielle cookies:</strong> <span data-i18n="cookie.essentialText">Påkrævet for at hjemmesiden fungerer</span></p>
+                <p><strong data-i18n="cookie.analyticsTitle">Analytics cookies:</strong> <span data-i18n="cookie.analyticsText">Hjælper os med at forstå brugeradfærd (valgfrit)</span></p>
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button id="cookie-reject" class="btn btn-secondary" data-i18n="cookie.btnReject">Afvis alle</button>
+            <button id="cookie-settings" class="btn btn-secondary" data-i18n="cookie.btnSettings">Indstillinger</button>
+            <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie.btnAccept">Accepter alle</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-modal" class="cookie-modal">
+    <div class="cookie-modal-content">
+        <button class="cookie-modal-close">&times;</button>
+        <h2 data-i18n="cookie.modalTitle">Cookie indstillinger</h2>
+        <p data-i18n="cookie.modalText">Vælg hvilke cookies du giver tilladelse til:</p>
+        
+        <div class="cookie-option">
+            <div class="cookie-option-header">
+                <input type="checkbox" id="cookie-essential" checked disabled>
+                <label for="cookie-essential">
+                    <strong data-i18n="cookie.essentialTitle">Essentielle cookies</strong>
+                    <span class="required-label" data-i18n="cookie.required">(Påkrævet)</span>
+                </label>
+            </div>
+            <p class="cookie-option-description" data-i18n="cookie.essentialDesc">Nødvendige for at hjemmesiden fungerer korrekt. Disse kan ikke deaktiveres.</p>
+        </div>
+        
+        <div class="cookie-option">
+            <div class="cookie-option-header">
+                <input type="checkbox" id="cookie-analytics">
+                <label for="cookie-analytics">
+                    <strong data-i18n="cookie.analyticsTitle">Analytics cookies</strong>
+                    <span class="optional-label" data-i18n="cookie.optional">(Valgfrit)</span>
+                </label>
+            </div>
+            <p class="cookie-option-description" data-i18n="cookie.analyticsDesc">Hjælper os med at forstå hvordan du bruger hjemmesiden, så vi kan forbedre den.</p>
+        </div>
+        
+        <div class="cookie-option">
+            <div class="cookie-option-header">
+                <input type="checkbox" id="cookie-marketing">
+                <label for="cookie-marketing">
+                    <strong data-i18n="cookie.marketingTitle">Marketing cookies</strong>
+                    <span class="optional-label" data-i18n="cookie.optional">(Valgfrit)</span>
+                </label>
+            </div>
+            <p class="cookie-option-description" data-i18n="cookie.marketingDesc">Bruges til at vise relevante annoncer og holde styr på markedsføringskampagner.</p>
+        </div>
+        
+        <div class="cookie-modal-buttons">
+            <button id="cookie-modal-save" class="btn btn-primary" data-i18n="cookie.saveBtn">Gem indstillinger</button>
+            <button id="cookie-modal-reject" class="btn btn-secondary" data-i18n="cookie.modalReject">Afvis alle</button>
+        </div>
+        
+        <p class="cookie-policy-link">
+            <a href="#" data-i18n="cookie.policyLink">Læs vores privatlivspolitik</a>
+        </p>
+    </div>
+</div>
