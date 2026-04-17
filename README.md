@@ -194,7 +194,3 @@ Hvis du har spørgsmål:
 ## 📄 Licens
 
 Du kan frit bruge og tilpasse denne template til dine behov.
-
----
-
-**Lykke til med dit portfolio! 🚀**
