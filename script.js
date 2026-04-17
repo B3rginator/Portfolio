@@ -137,6 +137,136 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// ===== HERO CUBE DRAG INTERACTION =====
+function initHeroCubeInteraction() {
+    const heroCuriosity = document.querySelector('.hero-curiosity');
+    const profileCube = document.querySelector('.profile-cube');
+
+    if (!heroCuriosity || !profileCube) {
+        return;
+    }
+
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let rotationX = -18;
+    let rotationY = 18;
+    let autoRotating = true;
+    let recovering = false;
+    let resumeTimer = null;
+    const AUTO_SPEED = 20;          // degrees per second (Y-axis spin)
+    const RESUME_DELAY = 3000;      // ms before recovery starts
+    const RECOVER_SPEED = 90;       // degrees per second for X-axis return
+    const REST_X = -18;             // the "readable" tilt angle
+
+    const applyRotation = () => {
+        profileCube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    };
+
+    // --- Normalize angle to [-180, 180) ---
+    const normalizeAngle = (a) => ((a % 360) + 540) % 360 - 180;
+
+    // --- Animation loop ---
+    let lastTime = null;
+    const tick = (timestamp) => {
+        if (lastTime !== null && !isDragging) {
+            const dt = (timestamp - lastTime) / 1000;
+
+            // Phase 1: recover X towards REST_X
+            if (recovering) {
+                const diff = normalizeAngle(REST_X - rotationX);
+                if (Math.abs(diff) < 0.5) {
+                    rotationX = REST_X;
+                    recovering = false;
+                    autoRotating = true;
+                } else {
+                    const step = Math.sign(diff) * Math.min(RECOVER_SPEED * dt, Math.abs(diff));
+                    rotationX += step;
+                }
+            }
+
+            // Phase 2: steady Y spin
+            if (autoRotating) {
+                rotationY += AUTO_SPEED * dt;
+            }
+        }
+        lastTime = timestamp;
+        applyRotation();
+        requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    const stopAutoRotation = () => {
+        autoRotating = false;
+        recovering = false;
+        if (resumeTimer) {
+            clearTimeout(resumeTimer);
+            resumeTimer = null;
+        }
+    };
+
+    const scheduleResume = () => {
+        if (resumeTimer) {
+            clearTimeout(resumeTimer);
+        }
+        resumeTimer = setTimeout(() => {
+            // Start recovering X back to the readable angle first
+            recovering = true;
+        }, RESUME_DELAY);
+    };
+
+    // --- Drag handlers ---
+    const startDrag = (event) => {
+        event.preventDefault();
+        isDragging = true;
+        stopAutoRotation();
+        startX = event.clientX ?? event.pageX;
+        startY = event.clientY ?? event.pageY;
+        heroCuriosity.classList.add('is-dragging');
+
+        if (event.pointerId !== undefined) {
+            heroCuriosity.setPointerCapture(event.pointerId);
+        }
+    };
+
+    const drag = (event) => {
+        if (!isDragging) {
+            return;
+        }
+        event.preventDefault();
+
+        const clientX = event.clientX ?? event.pageX;
+        const clientY = event.clientY ?? event.pageY;
+        const deltaX = clientX - startX;
+        const deltaY = clientY - startY;
+
+        rotationY += deltaX * 0.45;
+        rotationX -= deltaY * 0.35;
+        startX = clientX;
+        startY = clientY;
+    };
+
+    const endDrag = (event) => {
+        if (!isDragging) {
+            return;
+        }
+
+        isDragging = false;
+        heroCuriosity.classList.remove('is-dragging');
+        scheduleResume();
+
+        if (event.pointerId !== undefined) {
+            try { heroCuriosity.releasePointerCapture(event.pointerId); } catch (_) {}
+        }
+    };
+
+    heroCuriosity.addEventListener('pointerdown', startDrag);
+    heroCuriosity.addEventListener('pointermove', drag);
+    heroCuriosity.addEventListener('pointerup', endDrag);
+    heroCuriosity.addEventListener('pointercancel', endDrag);
+    heroCuriosity.addEventListener('lostpointercapture', endDrag);
+}
+
 // ===== PRELOAD ANIMATIONS =====
 document.addEventListener('DOMContentLoaded', () => {
     // Animate hero text on page load
@@ -144,6 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroTitle) {
         heroTitle.style.animation = 'slideInLeft 0.8s ease';
     }
+
+    initHeroCubeInteraction();
 });
 
 // ===== PORTFOLIO MODALS =====
@@ -398,6 +530,14 @@ const translations = {
         'hero.greeting': 'Hej,',
         'hero.intro': 'jeg er',
         'hero.subtitle': 'Marketing & Kommunikationschef med erfaring i brand strategy, content création og digital transformation',
+        'hero.traitStrategic': 'Strategisk',
+        'hero.traitCreative': 'Kreativ',
+        'hero.traitCurious': 'Nysgerrig',
+        'hero.traitRelational': 'Relationsstærk',
+        'hero.traitInternational': 'International',
+        'hero.traitDriven': 'Handlekraftig',
+        'hero.curiosity': 'Flere sider af mig, samlet i ét blik.',
+        'hero.dragHint': 'Tag fat og træk for at se alle sider.',
         'hero.ctaWork': 'Se mit arbejde',
         'hero.ctaContact': 'Lad os tale',
         'about.title': 'Om mig',
@@ -474,6 +614,14 @@ const translations = {
         'hero.greeting': 'Hi,',
         'hero.intro': 'I am',
         'hero.subtitle': 'Marketing & Communications Manager with experience in brand strategy, content creation and digital transformation',
+        'hero.traitStrategic': 'Strategic',
+        'hero.traitCreative': 'Creative',
+        'hero.traitCurious': 'Curious',
+        'hero.traitRelational': 'People-first',
+        'hero.traitInternational': 'International',
+        'hero.traitDriven': 'Hands-on',
+        'hero.curiosity': 'More sides of me, gathered in one glance.',
+        'hero.dragHint': 'Click and drag to explore every side.',
         'hero.ctaWork': 'View my work',
         'hero.ctaContact': 'Let’s talk',
         'about.title': 'About me',
