@@ -430,14 +430,63 @@ body {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    margin-top: 80px;
-    padding: 100px 0;
+    margin-top: 0;
+    padding: 180px 0 100px;
     background: linear-gradient(135deg, #F5F6FA 0%, #E8E6F5 100%);
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
     display: flex;
     align-items: center;
+}
+
+.curiosity-helper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    padding: 12px 16px;
+    border: 1px solid rgba(122, 22, 22, 0.14);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 233, 236, 0.94));
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 44px rgba(122, 22, 22, 0.14);
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-50%, 10px, 0) scale(0.96);
+    transform-origin: center bottom;
+    transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.28s ease;
+    pointer-events: none;
+    max-width: calc(100vw - 24px);
+    letter-spacing: 0.01em;
+    will-change: transform, opacity;
+    isolation: isolate;
+}
+
+.curiosity-helper::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    transform: translateX(-50%) rotate(45deg);
+    border-right: 1px solid rgba(122, 22, 22, 0.14);
+    border-bottom: 1px solid rgba(122, 22, 22, 0.14);
+    background: linear-gradient(180deg, rgba(244, 233, 236, 0.94), rgba(255, 255, 255, 0.96));
+    z-index: -1;
+}
+
+.curiosity-helper.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(-50%, 0, 0) scale(1);
 }
 
 .hero-content {
@@ -556,6 +605,7 @@ body {
 }
 
 .hero-curiosity {
+    position: relative;
     perspective: 1400px;
     animation: fadeInUp 0.9s ease 0.3s both;
     cursor: grab;
@@ -564,33 +614,14 @@ body {
     filter: drop-shadow(0 18px 34px rgba(122, 22, 22, 0.12));
 }
 
+.hero-curiosity:focus-visible {
+    outline: 2px solid rgba(122, 22, 22, 0.25);
+    outline-offset: 12px;
+    border-radius: 24px;
+}
+
 .hero-curiosity.is-dragging {
     cursor: grabbing;
-}
-
-.hero-curiosity::before,
-.hero-curiosity::after {
-    content: '';
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(14px);
-    pointer-events: none;
-}
-
-.hero-curiosity::before {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(223, 165, 177, 0.35) 0%, rgba(223, 165, 177, 0) 72%);
-    top: 28px;
-    left: 30px;
-}
-
-.hero-curiosity::after {
-    width: 210px;
-    height: 210px;
-    background: radial-gradient(circle, rgba(122, 22, 22, 0.2) 0%, rgba(122, 22, 22, 0) 70%);
-    right: 15px;
-    bottom: 24px;
 }
 
 .profile-cube-shell {
@@ -635,8 +666,13 @@ body {
 }
 
 .cube-face span {
-    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
     line-height: 1.15;
+    text-align: center;
 }
 
 .cube-front {
@@ -1175,8 +1211,22 @@ section:nth-child(even) {
     }
 
     .hero {
-        padding: 60px 0;
+        padding: 140px 0 60px;
         min-height: auto;
+    }
+
+    .curiosity-helper {
+        font-size: 13px;
+        white-space: normal;
+        width: min(240px, calc(100vw - 40px));
+        padding: 10px 12px;
+        border-radius: 16px;
+    }
+
+    .curiosity-helper::after {
+        width: 12px;
+        height: 12px;
+        bottom: -7px;
     }
 
     .hero-content {
