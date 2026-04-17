@@ -200,6 +200,7 @@ export function initHeroCubeInteraction() {
         scheduleResume();
 
         if (event.pointerId !== undefined) {
+            // releasePointerCapture may throw if capture was already released
             try { heroCuriosity.releasePointerCapture(event.pointerId); } catch (_) {}
         }
     };
