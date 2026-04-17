@@ -86,7 +86,12 @@ if (envelopePreview) {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+            if (entry.target.classList.contains('skills-showcase') || entry.target.classList.contains('skill-tag')) {
+                entry.target.classList.remove('reveal-pending');
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+            }
             observer.unobserve(entry.target);
         }
     });
@@ -95,6 +100,11 @@ const observer = new IntersectionObserver((entries) => {
 // Observe portfolio cards and CV items
 document.querySelectorAll('.portfolio-card, .cv-column').forEach(el => {
     el.style.opacity = '0';
+    observer.observe(el);
+});
+
+document.querySelectorAll('.skills-showcase, .skill-tag').forEach(el => {
+    el.classList.add('reveal-pending');
     observer.observe(el);
 });
 
