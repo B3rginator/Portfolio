@@ -1,19 +1,43 @@
 // ===== MOBILE MENU TOGGLE =====
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const navOverlay = document.querySelector('.nav-overlay');
 const navLinks = document.querySelectorAll('.nav-link');
 
+function setMobileMenuState(isOpen) {
+    navMenu.classList.toggle('active', isOpen);
+    navOverlay.classList.toggle('active', isOpen);
+    hamburger.classList.toggle('active', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Luk navigation' : 'Åbn navigation');
+    document.body.classList.toggle('menu-open', isOpen);
+}
+
 hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
+    setMobileMenuState(!navMenu.classList.contains('active'));
 });
 
 // Close menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+        setMobileMenuState(false);
     });
+});
+
+navOverlay.addEventListener('click', () => {
+    setMobileMenuState(false);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+        setMobileMenuState(false);
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+        setMobileMenuState(false);
+    }
 });
 
 // ===== SMOOTH SCROLLING =====
@@ -820,6 +844,10 @@ function translatePage(lang) {
 languageButtons.forEach(button => {
     button.addEventListener('click', () => {
         translatePage(button.dataset.lang);
+
+        if (navMenu.classList.contains('active')) {
+            setMobileMenuState(false);
+        }
     });
 });
 
