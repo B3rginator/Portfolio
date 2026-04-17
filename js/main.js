@@ -1,20 +1,5 @@
 // ===== MAIN ENTRY POINT =====
 
-// CSS imports (order matters: variables → base → components → animations → responsive)
-import '../css/variables.css';
-import '../css/base.css';
-import '../css/cookie.css';
-import '../css/navbar.css';
-import '../css/hero.css';
-import '../css/about.css';
-import '../css/cv.css';
-import '../css/portfolio.css';
-import '../css/contact.css';
-import '../css/footer.css';
-import '../css/modal.css';
-import '../css/animations.css';
-import '../css/responsive.css';
-
 import { initNavigation } from './navigation.js';
 import { initScrollAnimations } from './scroll-animations.js';
 import { initHeroCubeInteraction } from './hero-cube.js';
