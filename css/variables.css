@@ -1,0 +1,36 @@
+/* ===== ROOT & VARIABLES ===== */
+:root {
+    --primary-color: #7A1616;
+    --secondary-color: #DFA5B1;
+    --accent-color: #7A1616;
+    --dark-color: #2D3436;
+    --light-color: #F5F6FA;
+    --white: #FFFFFF;
+    --text-color: #2D3436;
+    --border-radius: 12px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 50px rgba(122, 22, 22, 0.2);
+    --transition: all 0.3s ease;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
