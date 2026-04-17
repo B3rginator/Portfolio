@@ -31,6 +31,10 @@ body {
     line-height: 1.6;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 /* ===== COOKIE BANNER ===== */
 .cookie-banner {
     position: fixed;
@@ -371,7 +375,12 @@ body {
 .hamburger {
     display: none;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
 }
 
 .hamburger span {
@@ -389,6 +398,14 @@ body {
     align-items: center;
     order: 3;
     flex-shrink: 0;
+}
+
+.lang-switcher-mobile {
+    display: none;
+}
+
+.nav-menu-lang-item {
+    display: none;
 }
 
 .lang-btn {
@@ -1344,33 +1361,48 @@ section:nth-child(even) {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 0.85rem 0;
+    }
+
     .hamburger {
         display: flex;
+        width: 44px;
+        height: 44px;
+        margin-right: -10px;
+        flex-shrink: 0;
     }
 
     .nav-container {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
+        min-height: 56px;
+        gap: 16px;
     }
 
-    .lang-switcher {
-        order: 2;
-        width: 100%;
-        justify-content: center;
-        margin: 10px 0;
+    .logo {
+        font-size: 20px;
+    }
+
+    .lang-switcher-desktop {
+        display: none;
     }
 
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 74px;
         flex-direction: column;
         background-color: white;
         width: 100%;
+        height: calc(100vh - 74px);
         text-align: center;
         transition: 0.3s;
         gap: 0;
         box-shadow: var(--shadow);
+        padding: 8px 20px 32px;
+        overflow-y: auto;
+        border-top: 1px solid rgba(122, 22, 22, 0.08);
     }
 
     .nav-menu.active {
@@ -1378,11 +1410,37 @@ section:nth-child(even) {
     }
 
     .nav-menu li {
-        padding: 15px 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 16px 0;
+        font-size: 18px;
+    }
+
+    .nav-menu-lang-item {
+        display: block;
+        margin-top: 8px;
+        padding: 18px 0 0;
+        border-top: 1px solid rgba(122, 22, 22, 0.08);
+    }
+
+    .lang-switcher-mobile {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        gap: 12px;
+    }
+
+    .lang-switcher-mobile .lang-btn {
+        width: 34px;
+        height: 34px;
     }
 
     .hero {
-        padding: 140px 0 60px;
+        padding: 118px 0 56px;
         min-height: auto;
     }
 
@@ -1402,19 +1460,26 @@ section:nth-child(even) {
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
+    }
+
+    .hero-text {
+        max-width: none;
+        text-align: center;
     }
 
     .hero-title {
         font-size: 40px;
+        margin-bottom: 16px;
     }
 
     .hero-subtitle {
         font-size: 16px;
+        margin: 0 auto 32px;
     }
 
     .hero-shapes {
-        height: 360px;
+        height: 320px;
     }
 
     .profile-cube-shell {
@@ -1454,11 +1519,41 @@ section:nth-child(even) {
 
     .hero-buttons {
         flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 28px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .skills h3 {
+        text-align: center;
+    }
+
+    .skill-tags {
+        justify-content: center;
+    }
+
+    .skill-tag {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .image-placeholder {
+        max-width: 280px;
+        height: 280px;
     }
 
     .cv-grid {
@@ -1502,6 +1597,16 @@ section:nth-child(even) {
 }
 
 @media (max-width: 480px) {
+    .nav-menu {
+        top: 70px;
+        height: calc(100vh - 70px);
+        padding-inline: 16px;
+    }
+
+    .nav-link {
+        font-size: 17px;
+    }
+
     .contact-envelope-preview {
         min-height: 460px;
         margin: -12px 0 8px;
@@ -1518,6 +1623,11 @@ section:nth-child(even) {
 
     .hero-title {
         font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+        margin-bottom: 28px;
     }
 
     .hero-shapes {
