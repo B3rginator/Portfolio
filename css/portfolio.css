@@ -11,6 +11,14 @@
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card:focus-visible {
+    outline: 3px solid rgba(122, 22, 22, 0.2);
+    outline-offset: 4px;
 }
 
 .portfolio-card-trigger {
@@ -69,14 +77,13 @@
     inset: 0;
     z-index: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 18px;
     color: var(--white);
 }
 
-.portfolio-image-badge,
-.portfolio-image-hint {
+.portfolio-image-badge {
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.82);
     border: 1px solid rgba(45, 52, 54, 0.08);
@@ -88,12 +95,6 @@
     text-transform: uppercase;
     color: var(--dark-color);
     box-shadow: 0 10px 24px rgba(45, 52, 54, 0.12);
-}
-
-.portfolio-image-hint {
-    background: rgba(122, 22, 22, 0.92);
-    border-color: rgba(122, 22, 22, 0.24);
-    color: var(--white);
 }
 
 .portfolio-image-fallback {
@@ -138,6 +139,9 @@
 
 .portfolio-content {
     padding: 30px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }
 
 .portfolio-content h3 {
@@ -159,14 +163,15 @@
     color: #666;
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    flex: 1;
 }
 
 .portfolio-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-top: auto;
 }
 
 .tag {
@@ -179,14 +184,22 @@
 }
 
 .portfolio-link {
-    color: var(--primary-color);
+    align-self: flex-start;
+    margin-bottom: 18px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--primary-color);
+    color: var(--white);
     text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 12px 24px rgba(122, 22, 22, 0.18);
     transition: var(--transition);
 }
 
 .portfolio-link:hover {
-    color: var(--accent-color);
-    transform: translateX(5px);
+    transform: translateY(-2px);
+    background: #631111;
 }
