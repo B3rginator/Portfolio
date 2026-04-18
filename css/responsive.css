@@ -438,8 +438,13 @@
     .modal-image {
         float: none;
         width: 100%;
-        max-width: none;
-        margin: 0 0 20px;
+        max-width: 280px;
+        margin: 0 auto 18px;
+    }
+
+    .modal-image img {
+        max-height: 420px;
+        margin: 0 auto;
     }
 
     .modal-header {
@@ -499,6 +504,57 @@
 
     .nav-link {
         font-size: 17px;
+    }
+
+    .portfolio-modal .modal-content {
+        width: calc(100vw - 16px);
+        margin: 8px auto;
+        max-height: calc(100vh - 16px);
+    }
+
+    .modal-header {
+        padding: 18px 18px 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 21px;
+    }
+
+    .modal-subtitle {
+        font-size: 14px;
+    }
+
+    .modal-body {
+        padding: 18px;
+    }
+
+    .modal-image {
+        max-width: 230px;
+        margin-bottom: 16px;
+    }
+
+    .modal-image img {
+        max-height: 340px;
+    }
+
+    .modal-description h3 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .modal-description p,
+    .modal-description li {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .modal-tags {
+        gap: 6px;
+    }
+
+    .modal-tags .tag {
+        padding: 6px 10px;
+        font-size: 12px;
     }
 
     .contact-envelope-preview {
