@@ -2,7 +2,8 @@
 .contact-envelope-preview {
     display: flex;
     justify-content: center;
-    margin: -28px 0 40px;
+    margin: 0 0 40px;
+    padding-top: 12px;
     overflow: hidden;
 }
 
@@ -178,6 +179,7 @@
 .contact-quick-links {
     width: min(100%, 760px);
     margin: 0 auto 34px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: stretch;

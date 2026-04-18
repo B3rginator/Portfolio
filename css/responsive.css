@@ -280,7 +280,8 @@
     }
 
     .contact-envelope-preview {
-        margin: -12px 0 20px;
+        margin: 0 0 20px;
+        padding-top: 8px;
         min-height: 470px;
     }
 
@@ -298,6 +299,7 @@
         width: 100%;
         gap: 14px;
         margin-bottom: 24px;
+        padding-bottom: 12px;
     }
 
     .contact-quick-link {
@@ -373,7 +375,8 @@
 
     .contact-envelope-preview {
         min-height: 370px;
-        margin: 8px 0 8px;
+        margin: 0 0 8px;
+        padding-top: 10px;
     }
 
     .letter-image {
