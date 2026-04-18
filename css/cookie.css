@@ -68,8 +68,7 @@ body.cookie-modal-open {
 }
 
 .cookie-policy-inline {
-    margin-top: 6px;
-    margin-bottom: 22px;
+    margin: 0;
     font-size: 14px;
 }
 
@@ -88,6 +87,14 @@ body.cookie-modal-open {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.cookie-links-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
 .cookie-button-row {
@@ -121,6 +128,8 @@ body.cookie-modal-open {
     color: #4b5563;
     text-align: left;
     cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
 .cookie-text-button:hover {
