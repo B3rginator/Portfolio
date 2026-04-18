@@ -254,7 +254,7 @@
         font-size: 14px;
     }
 
-    .image-placeholder {
+    .profile-photo {
         max-width: 280px;
         height: 280px;
     }
@@ -280,17 +280,41 @@
     }
 
     .contact-envelope-preview {
-        margin: -24px 0 28px;
-        min-height: 560px;
+        margin: -12px 0 20px;
+        min-height: 470px;
     }
 
     .letter-image {
+        height: 640px;
         transform: scale(0.72);
         transform-origin: center top;
     }
 
     .contact-info {
         width: 100%;
+    }
+
+    .contact-quick-links {
+        width: 100%;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .contact-quick-link {
+        width: 100%;
+        min-width: 0;
+        justify-content: flex-start;
+        padding: 15px 18px;
+    }
+
+    .contact-inline-link {
+        justify-content: flex-start;
+        font-size: 17px;
+    }
+
+    .contact-inline-link span {
+        white-space: normal;
+        text-align: left;
     }
 
     /* General */
@@ -348,11 +372,12 @@
     }
 
     .contact-envelope-preview {
-        min-height: 460px;
-        margin: -12px 0 8px;
+        min-height: 370px;
+        margin: 8px 0 8px;
     }
 
     .letter-image {
+        height: 600px;
         transform: scale(0.58);
     }
 

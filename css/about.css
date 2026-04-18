@@ -52,16 +52,12 @@
     justify-content: center;
 }
 
-.image-placeholder {
+.profile-photo {
     width: 100%;
     max-width: 350px;
     height: 350px;
-    background: rgba(122, 22, 22, 0.15);
+    object-fit: cover;
+    object-position: center top;
     border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    font-size: 18px;
     box-shadow: var(--shadow);
 }

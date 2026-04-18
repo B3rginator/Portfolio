@@ -2,13 +2,14 @@
 .contact-envelope-preview {
     display: flex;
     justify-content: center;
-    margin: -56px 0 120px;
+    margin: -28px 0 40px;
+    overflow: hidden;
 }
 
 .letter-image {
     position: relative;
     width: 600px;
-    height: 760px;
+    height: 700px;
 }
 
 .animated-mail {
@@ -169,16 +170,65 @@
 .contact-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 24px;
     margin-top: 0;
     justify-items: center;
+}
+
+.contact-quick-links {
+    width: min(100%, 760px);
+    margin: 0 auto 34px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
 }
 
 .contact-info {
     width: min(100%, 560px);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
+    align-items: center;
+}
+
+.contact-quick-link {
+    min-width: 240px;
+    padding: 16px 22px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(122, 22, 22, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(45, 52, 54, 0.08);
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-inline-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.contact-inline-link span {
+    white-space: nowrap;
+}
+
+.contact-inline-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .contact-item h3 {
@@ -199,9 +249,15 @@
     color: var(--primary-color);
 }
 
+.contact-inline-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
 .social-links {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .social-link {
