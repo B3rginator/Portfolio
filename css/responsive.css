@@ -308,12 +308,14 @@
     }
 
     .skill-tags {
+        gap: 8px;
         justify-content: center;
     }
 
     .skill-tag {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: 6px 12px;
+        font-size: 13px;
+        border-width: 1.5px;
     }
 
     .profile-photo {
