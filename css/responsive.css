@@ -259,6 +259,16 @@
         height: 280px;
     }
 
+    /* What I Bring */
+    .what-i-bring-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .bring-card {
+        min-height: 280px;
+    }
+
     /* CV */
     .cv-grid {
         grid-template-columns: 1fr;
@@ -356,6 +366,28 @@
     .modal-close {
         right: 15px;
         top: 10px;
+    }
+}
+
+@media (max-width: 560px) {
+    .what-i-bring-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bring-card {
+        min-height: 240px;
+        padding: 28px 24px;
+    }
+
+    .bring-card-icon {
+        width: 62px;
+        height: 62px;
+    }
+
+    .bring-card-content p {
+        opacity: 1;
+        max-height: 140px;
+        transform: translateY(0);
     }
 }
 

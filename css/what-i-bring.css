@@ -1,0 +1,185 @@
+/* ===== WHAT I BRING SECTION ===== */
+.what-i-bring {
+    position: relative;
+    overflow: hidden;
+}
+
+.what-i-bring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(223, 165, 177, 0.26), transparent 36%),
+        radial-gradient(circle at bottom left, rgba(122, 22, 22, 0.08), transparent 30%);
+    pointer-events: none;
+}
+
+.what-i-bring .container {
+    position: relative;
+    z-index: 1;
+}
+
+.what-i-bring-subtitle {
+    max-width: 720px;
+}
+
+.what-i-bring-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.bring-card {
+    --card-accent: #d8b0b8;
+    --card-accent-soft: rgba(216, 176, 184, 0.2);
+    position: relative;
+    min-height: 320px;
+    padding: 32px 26px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 250, 0.92));
+    border: 1px solid rgba(122, 22, 22, 0.1);
+    box-shadow: 0 18px 40px rgba(45, 52, 54, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+    isolation: isolate;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.bring-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -96px;
+    right: -96px;
+    background: var(--card-accent);
+    border-radius: 50%;
+    transition: transform 0.45s ease, width 0.45s ease, height 0.45s ease, top 0.45s ease, right 0.45s ease;
+    z-index: -2;
+}
+
+.bring-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 18%, var(--card-accent-soft) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: -1;
+}
+
+.bring-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(122, 22, 22, 0.18);
+    box-shadow: 0 22px 50px rgba(122, 22, 22, 0.16);
+}
+
+.bring-card:hover::before {
+    width: 140%;
+    height: 140%;
+    top: -28%;
+    right: -20%;
+    transform: scale(1.04);
+}
+
+.bring-card:hover::after {
+    opacity: 1;
+}
+
+.bring-card-number {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(122, 22, 22, 0.65);
+}
+
+.bring-card-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(122, 22, 22, 0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 24px rgba(45, 52, 54, 0.08);
+    transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.bring-card-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.bring-card:hover .bring-card-icon {
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.bring-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bring-card-content h3 {
+    font-size: 23px;
+    line-height: 1.2;
+    color: var(--text-color);
+    transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.bring-card-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #525252;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.28s ease, transform 0.35s ease, max-height 0.35s ease;
+}
+
+.bring-card:hover .bring-card-content h3,
+.bring-card:focus-within .bring-card-content h3,
+.bring-card:active .bring-card-content h3 {
+    color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+.bring-card:hover .bring-card-content p,
+.bring-card:focus-within .bring-card-content p,
+.bring-card:active .bring-card-content p {
+    opacity: 1;
+    max-height: 140px;
+    transform: translateY(0);
+}
+
+.bring-card-creative {
+    --card-accent: #f1d36f;
+    --card-accent-soft: rgba(241, 211, 111, 0.18);
+}
+
+.bring-card-end-to-end {
+    --card-accent: #c8edd8;
+    --card-accent-soft: rgba(200, 237, 216, 0.22);
+}
+
+.bring-card-execution {
+    --card-accent: #f1bcc4;
+    --card-accent-soft: rgba(241, 188, 196, 0.22);
+}
+
+.bring-card-learning {
+    --card-accent: #d9d6fb;
+    --card-accent-soft: rgba(217, 214, 251, 0.22);
+}
