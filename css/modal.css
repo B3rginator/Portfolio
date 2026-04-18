@@ -14,6 +14,7 @@
 
 .portfolio-modal .modal-content {
     background-color: var(--white);
+    position: relative;
     margin: 5% auto;
     padding: 0;
     border-radius: var(--border-radius);
