@@ -203,6 +203,7 @@
     }
 
     .hero-text {
+        order: 2;
         max-width: none;
         text-align: center;
     }
@@ -218,7 +219,9 @@
     }
 
     .hero-shapes {
+        order: 1;
         height: 320px;
+        margin-top: 0;
     }
 
     .profile-cube-shell {
@@ -484,6 +487,7 @@
 
     .hero-shapes {
         height: 320px;
+        margin-top: 0;
     }
 
     .profile-cube-shell {
