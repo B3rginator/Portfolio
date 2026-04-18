@@ -462,7 +462,7 @@
     }
 
     .bring-card {
-        min-height: 240px;
+        min-height: auto;
         padding: 28px 24px;
     }
 
@@ -471,9 +471,18 @@
         height: 62px;
     }
 
+    .bring-card-content {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        margin-top: 118px;
+        min-height: 0;
+    }
+
     .bring-card-content p {
         opacity: 1;
-        max-height: 140px;
+        max-height: none;
         transform: translateY(0);
     }
 }
