@@ -2,22 +2,43 @@
 
 /* --- Cookie Banner --- */
 @media (max-width: 768px) {
+    .cookie-banner {
+        right: 14px;
+        bottom: 14px;
+        width: calc(100vw - 28px);
+    }
+
+    .cookie-shell {
+        border-radius: 20px;
+    }
+
     .cookie-content {
-        flex-direction: column;
-        gap: 20px;
+        padding: 28px 18px 18px;
+    }
+
+    .cookie-icon {
+        margin: -58px auto 16px;
+    }
+
+    .cookie-content {
+        gap: 16px;
     }
 
     .cookie-buttons {
         width: 100%;
-        flex-direction: column;
+    }
+
+    .cookie-button-row {
+        grid-template-columns: 1fr;
     }
 
     .cookie-buttons .btn {
         width: 100%;
+        min-width: 0;
     }
 
     .cookie-text h3 {
-        font-size: 14px;
+        font-size: 1rem;
     }
 
     .cookie-text p {
@@ -25,7 +46,23 @@
     }
 
     .cookie-modal-content {
-        padding: 30px 20px;
+        width: calc(100vw - 24px);
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .cookie-modal-intro {
+        padding-right: 34px;
+    }
+
+    .cookie-option-header {
+        align-items: flex-start;
+    }
+
+    .cookie-option-header label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
     }
 
     .cookie-modal-buttons {

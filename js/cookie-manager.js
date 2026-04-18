@@ -4,6 +4,8 @@ export class CookieManager {
     constructor() {
         this.cookieName = 'portfolio_cookie_consent';
         this.cookieExpiry = 365; // days
+        this.handleEscapeKey = this.handleEscapeKey.bind(this);
+        this.lastFocusedElement = null;
         this.init();
     }
 
@@ -11,6 +13,10 @@ export class CookieManager {
         // Check if user has already made a choice
         const existingConsent = this.getCookie(this.cookieName);
         const banner = document.getElementById('cookie-banner');
+
+        if (!banner) {
+            return;
+        }
 
         if (!existingConsent) {
             // Show banner if no previous consent
@@ -51,6 +57,8 @@ export class CookieManager {
         document.querySelector('.cookie-modal-close')?.addEventListener('click', () => {
             this.closeSettings();
         });
+
+        document.addEventListener('keydown', this.handleEscapeKey);
 
         // Close modal when clicking outside
         document.getElementById('cookie-modal')?.addEventListener('click', (e) => {
@@ -103,13 +111,23 @@ export class CookieManager {
 
     openSettings() {
         const modal = document.getElementById('cookie-modal');
+        this.lastFocusedElement = document.activeElement;
         modal.classList.add('show');
+        document.body.classList.add('cookie-modal-open');
         this.updateCheckboxes();
+
+        const closeButton = modal.querySelector('.cookie-modal-close');
+        closeButton?.focus();
     }
 
     closeSettings() {
         const modal = document.getElementById('cookie-modal');
         modal.classList.remove('show');
+        document.body.classList.remove('cookie-modal-open');
+
+        if (this.lastFocusedElement instanceof HTMLElement) {
+            this.lastFocusedElement.focus();
+        }
     }
 
     updateCheckboxes() {
@@ -146,10 +164,25 @@ export class CookieManager {
 
     hideBanner() {
         const banner = document.getElementById('cookie-banner');
+        if (!banner) {
+            return;
+        }
+
         banner.classList.remove('show');
         setTimeout(() => {
             banner.style.display = 'none';
         }, 300);
+    }
+
+    handleEscapeKey(event) {
+        if (event.key !== 'Escape') {
+            return;
+        }
+
+        const modal = document.getElementById('cookie-modal');
+        if (modal?.classList.contains('show')) {
+            this.closeSettings();
+        }
     }
 
     setCookie(name, value, expiryDays) {
