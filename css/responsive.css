@@ -360,9 +360,14 @@
     }
 
     .modal-body {
-        grid-template-columns: 1fr;
-        gap: 20px;
         padding: 20px;
+    }
+
+    .modal-image {
+        float: none;
+        width: 100%;
+        max-width: none;
+        margin: 0 0 20px;
     }
 
     .modal-header {
@@ -371,10 +376,6 @@
 
     .modal-header h2 {
         font-size: 24px;
-    }
-
-    .modal-footer {
-        padding: 20px;
     }
 
     .modal-close {
