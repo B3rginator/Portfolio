@@ -78,28 +78,50 @@
 @media (max-width: 768px) {
     /* Navigation */
     .navbar {
-        padding: 0.85rem 0;
+        padding: 0.5rem 0;
     }
 
     .hamburger {
         display: flex;
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         margin-right: -4px;
         flex-shrink: 0;
+    }
+
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 9px;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 15px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 21px;
+    }
+
+    .hamburger.active span:nth-child(1),
+    .hamburger.active span:nth-child(3) {
+        top: 15px;
     }
 
     .nav-container {
         flex-wrap: nowrap;
         justify-content: space-between;
-        min-height: 56px;
+        min-height: 44px;
         gap: 16px;
         position: relative;
         z-index: 1002;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .lang-switcher-desktop {
