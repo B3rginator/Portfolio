@@ -1,7 +1,7 @@
 // ===== PORTFOLIO MODALS MODULE =====
 
 export function initModals() {
-    const modalLinks = document.querySelectorAll('.portfolio-link[data-modal]');
+    const modalLinks = document.querySelectorAll('.portfolio-link[data-modal], .portfolio-card-trigger[data-modal]');
     const modals = document.querySelectorAll('.portfolio-modal');
     const closeButtons = document.querySelectorAll('.modal-close');
 
