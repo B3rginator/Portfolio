@@ -1,9 +1,10 @@
 /* ===== ABOUT SECTION ===== */
 .about-content {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: center;
+    display: block;
+}
+
+.about-text {
+    display: flow-root;
 }
 
 .about-text p {
@@ -60,14 +61,14 @@
 }
 
 .about-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    float: right;
+    width: min(42%, 350px);
+    margin: 0 0 24px 36px;
 }
 
 .profile-photo {
     width: 100%;
-    max-width: 350px;
+    max-width: none;
     height: 350px;
     object-fit: cover;
     object-position: center top;

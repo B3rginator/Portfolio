@@ -294,16 +294,17 @@
 
     /* About */
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        display: block;
     }
 
     .about-image {
-        order: 1;
+        float: none;
+        width: min(100%, 280px);
+        margin: 0 auto 24px;
     }
 
     .about-text {
-        order: 2;
+        display: block;
     }
 
     .about-text p {
