@@ -311,6 +311,16 @@
         margin-bottom: 20px;
     }
 
+    .about-hobbies {
+        gap: 12px;
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .about-hobbies li {
+        font-size: 16px;
+    }
+
     .skills h3 {
         text-align: center;
     }

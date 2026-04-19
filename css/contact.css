@@ -218,10 +218,21 @@
     font-size: 20px;
 }
 
+.social-link i {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
 .social-link:hover {
     background: var(--primary-color);
-    color: white;
+    color: #fff;
     transform: translateY(-5px);
+}
+
+.social-link:hover i {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    text-shadow: none;
 }
 
 .contact-form {
