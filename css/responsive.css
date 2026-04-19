@@ -393,26 +393,22 @@
 
     .contact-quick-links {
         width: 100%;
-        gap: 14px;
         margin-bottom: 24px;
         padding-bottom: 12px;
     }
 
-    .contact-quick-link {
-        width: 100%;
-        min-width: 0;
-        justify-content: flex-start;
-        padding: 15px 18px;
+    .contact-business-card {
+        width: min(100%, 348px);
+        gap: 28px;
+        padding: 24px 22px 22px;
     }
 
-    .contact-inline-link {
-        justify-content: flex-start;
-        font-size: 17px;
+    .contact-card-role {
+        max-width: none;
     }
 
-    .contact-inline-link span {
-        white-space: normal;
-        text-align: left;
+    .contact-card-detail {
+        font-size: 15px;
     }
 
     /* General */
@@ -561,6 +557,31 @@
         min-height: 300px;
         margin: 0 0 4px;
         padding-top: 6px;
+    }
+
+    .contact-business-card {
+        width: min(100%, 320px);
+        min-height: 204px;
+        padding: 20px 18px;
+        gap: 20px;
+        border-radius: 16px;
+        transform: none;
+    }
+
+    .contact-business-card::before {
+        inset: 10px;
+    }
+
+    .contact-card-name {
+        font-size: 24px;
+    }
+
+    .contact-card-role {
+        font-size: 14px;
+    }
+
+    .contact-card-detail {
+        font-size: 15px;
     }
 
     .letter-image {
