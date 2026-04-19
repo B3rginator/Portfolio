@@ -2,22 +2,43 @@
 
 /* --- Cookie Banner --- */
 @media (max-width: 768px) {
+    .cookie-banner {
+        right: 14px;
+        bottom: 14px;
+        width: calc(100vw - 28px);
+    }
+
+    .cookie-shell {
+        border-radius: 20px;
+    }
+
     .cookie-content {
-        flex-direction: column;
-        gap: 20px;
+        padding: 28px 18px 18px;
+    }
+
+    .cookie-icon {
+        margin: -58px auto 16px;
+    }
+
+    .cookie-content {
+        gap: 16px;
     }
 
     .cookie-buttons {
         width: 100%;
-        flex-direction: column;
+    }
+
+    .cookie-button-row {
+        grid-template-columns: 1fr;
     }
 
     .cookie-buttons .btn {
         width: 100%;
+        min-width: 0;
     }
 
     .cookie-text h3 {
-        font-size: 14px;
+        font-size: 1rem;
     }
 
     .cookie-text p {
@@ -25,7 +46,23 @@
     }
 
     .cookie-modal-content {
-        padding: 30px 20px;
+        width: calc(100vw - 24px);
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .cookie-modal-intro {
+        padding-right: 34px;
+    }
+
+    .cookie-option-header {
+        align-items: flex-start;
+    }
+
+    .cookie-option-header label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
     }
 
     .cookie-modal-buttons {
@@ -41,28 +78,50 @@
 @media (max-width: 768px) {
     /* Navigation */
     .navbar {
-        padding: 0.85rem 0;
+        padding: 0.5rem 0;
     }
 
     .hamburger {
         display: flex;
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         margin-right: -4px;
         flex-shrink: 0;
+    }
+
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 9px;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 15px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 21px;
+    }
+
+    .hamburger.active span:nth-child(1),
+    .hamburger.active span:nth-child(3) {
+        top: 15px;
     }
 
     .nav-container {
         flex-wrap: nowrap;
         justify-content: space-between;
-        min-height: 56px;
+        min-height: 44px;
         gap: 16px;
         position: relative;
         z-index: 1002;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .lang-switcher-desktop {
@@ -86,6 +145,7 @@
         padding: 78px 22px 24px;
         overflow-y: auto;
         border: 1px solid rgba(122, 22, 22, 0.08);
+        border-top: none;
         border-radius: 24px;
         opacity: 0;
         pointer-events: none;
@@ -123,7 +183,6 @@
         display: block;
         margin-top: 8px;
         padding: 18px 0 0;
-        border-top: 1px solid rgba(122, 22, 22, 0.08);
         border-bottom: none;
     }
 
@@ -142,7 +201,7 @@
 
     /* Hero */
     .hero {
-        padding: 118px 0 56px;
+        padding: 86px 0 56px;
         min-height: auto;
     }
 
@@ -166,6 +225,7 @@
     }
 
     .hero-text {
+        order: 2;
         max-width: none;
         text-align: center;
     }
@@ -181,7 +241,9 @@
     }
 
     .hero-shapes {
+        order: 1;
         height: 320px;
+        margin-top: 0;
     }
 
     .profile-cube-shell {
@@ -236,6 +298,14 @@
         gap: 28px;
     }
 
+    .about-image {
+        order: 1;
+    }
+
+    .about-text {
+        order: 2;
+    }
+
     .about-text p {
         font-size: 16px;
         margin-bottom: 20px;
@@ -246,17 +316,29 @@
     }
 
     .skill-tags {
+        gap: 8px;
         justify-content: center;
     }
 
     .skill-tag {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: 6px 12px;
+        font-size: 13px;
+        border-width: 1.5px;
     }
 
-    .image-placeholder {
+    .profile-photo {
         max-width: 280px;
         height: 280px;
+    }
+
+    /* What I Bring */
+    .what-i-bring-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .bring-card {
+        min-height: 280px;
     }
 
     /* CV */
@@ -274,23 +356,59 @@
         grid-template-columns: 1fr;
     }
 
+    .portfolio-image {
+        height: clamp(220px, 58vw, 280px);
+    }
+
+    .portfolio-image-overlay {
+        padding: 14px;
+    }
+
+    .portfolio-image-badge,
+    .portfolio-image-hint {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
     /* Contact */
     .contact-content {
         grid-template-columns: 1fr;
     }
 
     .contact-envelope-preview {
-        margin: -24px 0 28px;
-        min-height: 560px;
+        margin: 0 0 20px;
+        padding-top: 8px;
+        min-height: 410px;
     }
 
     .letter-image {
+        height: 560px;
         transform: scale(0.72);
         transform-origin: center top;
     }
 
     .contact-info {
         width: 100%;
+    }
+
+    .contact-quick-links {
+        width: 100%;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+    }
+
+    .contact-business-card {
+        width: min(100%, 348px);
+        gap: 28px;
+        padding: 24px 22px 22px;
+    }
+
+    .contact-card-role {
+        max-width: none;
+    }
+
+    .contact-card-detail {
+        font-size: 15px;
     }
 
     /* General */
@@ -310,9 +428,19 @@
     }
 
     .modal-body {
-        grid-template-columns: 1fr;
-        gap: 20px;
         padding: 20px;
+    }
+
+    .modal-image {
+        float: none;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto 18px;
+    }
+
+    .modal-image img {
+        max-height: 420px;
+        margin: 0 auto;
     }
 
     .modal-header {
@@ -323,13 +451,40 @@
         font-size: 24px;
     }
 
-    .modal-footer {
-        padding: 20px;
-    }
-
     .modal-close {
         right: 15px;
         top: 10px;
+    }
+}
+
+@media (max-width: 560px) {
+    .what-i-bring-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bring-card {
+        min-height: auto;
+        padding: 28px 24px;
+    }
+
+    .bring-card-icon {
+        width: 62px;
+        height: 62px;
+    }
+
+    .bring-card-content {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        margin-top: 118px;
+        min-height: 0;
+    }
+
+    .bring-card-content p {
+        opacity: 1;
+        max-height: none;
+        transform: translateY(0);
     }
 }
 
@@ -347,12 +502,90 @@
         font-size: 17px;
     }
 
+    .portfolio-modal .modal-content {
+        width: calc(100vw - 16px);
+        margin: 8px auto;
+        max-height: calc(100vh - 16px);
+    }
+
+    .modal-header {
+        padding: 18px 18px 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 21px;
+    }
+
+    .modal-subtitle {
+        font-size: 14px;
+    }
+
+    .modal-body {
+        padding: 18px;
+    }
+
+    .modal-image {
+        max-width: 230px;
+        margin-bottom: 16px;
+    }
+
+    .modal-image img {
+        max-height: 340px;
+    }
+
+    .modal-description h3 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .modal-description p,
+    .modal-description li {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .modal-tags {
+        gap: 6px;
+    }
+
+    .modal-tags .tag {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
     .contact-envelope-preview {
-        min-height: 460px;
-        margin: -12px 0 8px;
+        min-height: 300px;
+        margin: 0 0 4px;
+        padding-top: 6px;
+    }
+
+    .contact-business-card {
+        width: min(100%, 320px);
+        min-height: 204px;
+        padding: 20px 18px;
+        gap: 20px;
+        border-radius: 16px;
+        transform: none;
+    }
+
+    .contact-business-card::before {
+        inset: 10px;
+    }
+
+    .contact-card-name {
+        font-size: 24px;
+    }
+
+    .contact-card-role {
+        font-size: 14px;
+    }
+
+    .contact-card-detail {
+        font-size: 15px;
     }
 
     .letter-image {
+        height: 500px;
         transform: scale(0.58);
     }
 
@@ -372,6 +605,7 @@
 
     .hero-shapes {
         height: 320px;
+        margin-top: 0;
     }
 
     .profile-cube-shell {

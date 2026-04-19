@@ -14,11 +14,12 @@
 
 .portfolio-modal .modal-content {
     background-color: var(--white);
+    position: relative;
     margin: 5% auto;
     padding: 0;
     border-radius: var(--border-radius);
     width: 90%;
-    max-width: 900px;
+    max-width: 980px;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: var(--shadow-hover);
@@ -63,46 +64,54 @@
 }
 
 .modal-body {
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: start;
+    padding: 28px 30px 34px;
+    display: block;
 }
 
 .modal-image {
-    width: 100%;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
+    float: right;
+    width: clamp(220px, 34%, 360px);
+    margin: 0 -30px 20px 28px;
 }
 
 .modal-image img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: auto;
+    max-height: none;
+    display: block;
     transition: var(--transition);
 }
 
 .modal-image img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
+}
+
+.modal-description {
+    display: block;
 }
 
 .modal-description h3 {
     color: var(--primary-color);
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+    margin-top: 10px;
     font-weight: 600;
+}
+
+.modal-description h3:first-child {
+    margin-top: 0;
 }
 
 .modal-description p {
     margin-bottom: 20px;
     line-height: 1.7;
+    max-width: 72ch;
 }
 
 .modal-description ul {
     margin-bottom: 20px;
     padding-left: 20px;
+    max-width: 72ch;
 }
 
 .modal-description li {
@@ -113,11 +122,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 8px;
 }
 
-.modal-footer {
-    padding: 20px 30px 30px;
-    border-top: 1px solid var(--light-color);
-    text-align: center;
+.modal-body::after {
+    content: "";
+    display: block;
+    clear: both;
 }

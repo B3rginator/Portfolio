@@ -1,7 +1,7 @@
 // ===== PORTFOLIO MODALS MODULE =====
 
 export function initModals() {
-    const modalLinks = document.querySelectorAll('.portfolio-link[data-modal]');
+    const modalLinks = document.querySelectorAll('.portfolio-card[data-modal], .portfolio-card-trigger[data-modal], .portfolio-link[data-modal]');
     const modals = document.querySelectorAll('.portfolio-modal');
     const closeButtons = document.querySelectorAll('.modal-close');
 
@@ -9,11 +9,27 @@ export function initModals() {
     modalLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const modalId = link.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        });
+
+        link.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') {
+                return;
+            }
+
+            e.preventDefault();
+            e.stopPropagation();
+            const modalId = link.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
             }
         });
     });
