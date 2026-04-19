@@ -40,7 +40,7 @@ export function initCvLoadMore() {
         visibleCount += nextItems.length;
 
         if (visibleCount >= experienceItems.length) {
-            loadMoreWrap.hidden = true;
+            loadMoreWrap.remove();
         }
     });
 
