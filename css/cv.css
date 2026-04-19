@@ -56,6 +56,16 @@
     gap: 30px;
 }
 
+.cv-load-more-wrap {
+    margin-top: 6px;
+    display: flex;
+    justify-content: center;
+}
+
+.cv-load-more {
+    min-width: 160px;
+}
+
 .cv-item {
     padding-bottom: 30px;
     border-bottom: 1px solid #eee;

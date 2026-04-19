@@ -30,7 +30,7 @@ const translations = {
         'whatIBring.subtitle': 'Mine styrker ligger i at kombinere ide, struktur og handling, så jeg skaber reel fremdrift og mærkbar værdi.',
         'whatIBring.card1.title': 'Kreativ tænkning med struktur',
         'whatIBring.card1.subtitle': 'Ideer er kun værdifulde, hvis de kan eksekveres og skaleres.',
-        'whatIBring.card2.title': 'Helhedsforståelse',
+        'whatIBring.card2.title': 'Helheds­forståelse',
         'whatIBring.card2.subtitle': 'Jeg forbinder indhold, hjemmeside og brugerrejse til en sammenhængende oplevelse.',
         'whatIBring.card3.title': 'Fra ide til eksekvering',
         'whatIBring.card3.subtitle': 'Jeg udvikler ikke kun koncepter, jeg bygger og implementerer dem.',
@@ -39,6 +39,7 @@ const translations = {
         'cv.title': 'CV & Erfaring',
         'cv.experience': 'Arbejdserfaring',
         'cv.education': 'Uddannelse',
+        'cv.loadMore': 'Vis flere',
         'cv.download': 'Download fuldt CV',
         'portfolio.title': 'Projekter hvor jeg har gjort en forskel',
         'portfolio.subtitle': 'Et udvalg af projekter fra mit portfolio, hvor fokus på forbedring af budskab, arbejde kreativt og struktureret.',
@@ -164,6 +165,7 @@ const translations = {
         'cv.title': 'CV & Experience',
         'cv.experience': 'Work Experience',
         'cv.education': 'Education',
+        'cv.loadMore': 'Show more',
         'cv.download': 'Download full CV',
         'portfolio.title': 'Projects where I’ve made a difference',
         'portfolio.subtitle': 'A selection of projects from my portfolio focused on improving the message, working creatively and structured.',
@@ -279,6 +281,7 @@ function translatePage(lang) {
     });
 
     document.documentElement.lang = lang;
+    document.body.lang = lang;
     localStorage.setItem('preferredLanguage', lang);
 }
 

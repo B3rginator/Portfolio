@@ -6,6 +6,7 @@ import { initHeroCubeInteraction } from './hero-cube.js';
 import { initContactForm } from './contact-form.js';
 import { initModals } from './modals.js';
 import { CookieManager } from './cookie-manager.js';
+import { initCvLoadMore } from './cv-load-more.js';
 import { initI18n } from './i18n.js';
 
 // Initialize all modules
@@ -15,6 +16,7 @@ initScrollAnimations();
 initContactForm();
 initHeroCubeInteraction();
 initModals();
+initCvLoadMore();
 initI18n();
 
 // Initialize cookie manager
